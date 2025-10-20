@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Adinda Azzahra — Laravel Developer | Business System Builder</title>
+    <meta name="description"
+        content="I'm Adinda Azzahra, a Laravel developer who builds smart, functional systems for businesses. I create reliable web and mobile solutions focused on performance, security, and clean architecture.">
+    <meta name="keywords"
+        content="Adinda Azzahra, Laravel Developer, Flutter Developer, API Developer, Web System, Business Workflow, Backend Developer, Portfolio">
+    <meta name="author" content="Adinda Azzahra">
+    <link rel="icon" type="image/png" href="assets/logo.png" />
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <!-- AOS (Animate on Scroll) -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+
+    <!-- Main stylesheet -->
+    <!-- <link rel="stylesheet" href="style.css" /> -->
+    <style>
+        :root {
+            --bg: #f7f8fb;
+            --card: #ffffff;
+            --text: #0f1724;
+            --muted: #6b7280;
+            --accent: #0078ff;
+            --glass: rgba(255, 255, 255, 0.6);
+        }
+
+        * {
+            box-sizing: border-box
+        }
+
+
+        html,
+        body {
+            height: 100%;
+
+        }
+
+        [data-aos] {
+            overflow: visible !important;
+        }
+
+        body {
+            margin: 0;
+            overflow-x: hidden;
+            font-family: 'Poppins', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+            background: var(--bg);
+            color: var(--text);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px
+        }
+
+        header#hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+            padding: 60px 20px;
+        }
+
+        header .content {
+            z-index: 2;
+            max-width: 760px
+        }
+
+        h1 {
+            font-size: 2.6rem;
+            margin-bottom: 0.6rem;
+            line-height: 1.05
+        }
+
+        .highlight {
+            color: var(--accent)
+        }
+
+        .typing {
+            font-weight: 600;
+            font-size: 16pt;
+            margin-bottom: 1rem;
+            color: var(--muted)
+        }
+
+        p {
+            color: var(--muted)
+        }
+
+        .hero-cta {
+            margin-top: 18px
+        }
+
+        .btn {
+            display: inline-block;
+            background: var(--accent);
+            color: white;
+            padding: 10px 18px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform .18s ease, box-shadow .18s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08)
+        }
+
+        .btn-ghost {
+            background: transparent;
+            color: var(--text);
+            border: 1px solid rgba(15, 23, 36, 0.06)
+        }
+
+        section {
+            padding: 80px 0
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            margin-bottom: 14px;
+            color: var(--text)
+        }
+
+        /* .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 18px;
+            margin-top: 22px
+        }
+
+        .project-card {
+            background: var(--card);
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 6px 24px rgba(11, 14, 25, 0.04);
+            transition: transform .22s ease, box-shadow .22s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 18px 40px rgba(11, 14, 25, 0.06)
+        }
+
+        .project-card .meta {
+            margin-top: 10px;
+            font-size: 0.85rem;
+            color: var(--muted)
+        } */
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 24px;
+            margin-top: 40px;
+        }
+
+        .project-card {
+            background: var(--card-bg, #fff);
+            color: var(--text-color, #111);
+            border-radius: 14px;
+            padding: 24px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+        }
+
+        .project-card h3 {
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+
+        .project-card h3 a {
+            color: #4ea1ff;
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .project-card h3 a:hover {
+            color: #2a79e0;
+        }
+
+        .project-card p {
+            margin-bottom: 8px;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        .project-card .meta {
+            font-size: 0.8rem;
+            color: #666;
+        }
+
+        /* Dark mode support */
+        html.dark .project-card {
+            background: #1e1e1e;
+            color: #fff;
+        }
+
+        html.dark .project-card .meta {
+            color: #aaa;
+        }
+
+        html.dark .project-card h3 a {
+            color: #82b7ff;
+        }
+
+        footer {
+            padding: 40px 0;
+            text-align: center;
+            color: var(--muted);
+            font-size: 0.95rem;
+            background: transparent;
+            border-top: 1px solid rgba(15, 23, 36, 0.03)
+        }
+
+        /* Canvas */
+        canvas#mouseCanvas {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            pointer-events: none
+        }
+
+        /* Contact form */
+        .contact-form {
+            max-width: 720px;
+            margin: 20px auto;
+            text-align: left;
+            display: grid;
+            gap: 12px
+        }
+
+        .contact-form label {
+            display: block
+        }
+
+        .contact-form span {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 6px;
+            color: var(--text)
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 12px 14px;
+            border-radius: 10px;
+            border: 1px solid rgba(15, 23, 36, 0.06);
+            background: white;
+            font-size: 0.97rem;
+            resize: vertical;
+        }
+
+        .form-actions {
+            display: flex;
+            gap: 12px;
+            align-items: center
+        }
+
+        /* Dark mode */
+        :root.dark {
+            --bg: #0b0f1a;
+            --card: #071223;
+            --text: #e6eef8;
+            --muted: #9fb0c8;
+            --accent: #6aa8ff;
+            --glass: rgba(255, 255, 255, 0.03);
+        }
+
+        #darkToggle {
+            position: fixed;
+            right: 18px;
+            bottom: 18px;
+            z-index: 999;
+            background: var(--card);
+            border: none;
+            padding: 10px;
+            border-radius: 12px;
+            cursor: pointer;
+            box-shadow: 0 6px 18px rgba(2, 6, 23, 0.12)
+        }
+
+        #darkToggle:focus {
+            outline: 2px solid rgba(0, 120, 255, 0.12)
+        }
+
+        .typed-cursor {
+            font-size: 1.5rem;
+            /* 🔥 ubah angka ini untuk gedein */
+            font-weight: bold;
+            line-height: 1;
+            vertical-align: text-bottom;
+            margin-left: 4px;
+            animation: blink 0.7s steps(1) infinite;
+        }
+
+        @keyframes blink {
+            50% {
+                opacity: 0;
+            }
+        }
+
+        @media (max-width:640px) {
+            h1 {
+                font-size: 2rem
+            }
+
+            .container {
+                padding: 0 16px
+            }
+
+            section {
+                padding: 60px 0
+            }
+        }
+
+        .tracking-in-expand {
+            -webkit-animation: tracking-in-expand 0.7s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
+            animation: tracking-in-expand 0.7s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
+        }
+
+        @-webkit-keyframes tracking-in-expand {
+            0% {
+                letter-spacing: -0.5em;
+                opacity: 0;
+            }
+
+            40% {
+                opacity: 0.6;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+        @keyframes tracking-in-expand {
+            0% {
+                letter-spacing: -0.5em;
+                opacity: 0;
+            }
+
+            40% {
+                opacity: 0.6;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+    </style>
+
+
+    <meta name="description" content="Interactive portfolio — clean, minimal, with subtle animations." />
+</head>
+
+<body>
+    <button id="darkToggle" aria-label="Toggle dark mode">🌙</button>
+
+    <header id="hero">
+        <div class="content">
+            <img data-aos="fade-down" src="assets/logo.png" width="10%%" alt="">
+            <h1>Hi, I'm <span class="highlight tracking-in-expand">Adinda Azzahra</span> 👋</h1>
+            <p> <span class="typing" data-aos="fade-up" data-aos-delay="150"></span></p>
+            <p data-aos="fade-up" data-aos-delay="300">
+                I build smart, functional web systems that simplify business flows by focusing on reliable solutions
+                through clean architecture, solid logic, and modern Laravel development.
+                No flashy designs — just reliable, well-structured, and efficient web solutions that get the job done.
+            </p>
+            <div class="hero-cta" data-aos="fade-up" data-aos-delay="450">
+                <a href="#projects" class="btn">See My Work</a>
+                <a href="#contact" class="btn btn-ghost">Contact Me</a>
+            </div>
+        </div>
+
+        <!-- Interactive canvas for subtle particles -->
+        <canvas id="mouseCanvas" aria-hidden="true"></canvas>
+    </header>
+
+    <main>
+        <section id="about" data-aos="fade-right">
+            <div class="container">
+                <h2>About Me</h2>
+                <p>
+                    I’m a Laravel developer who loves building systems that help businesses work smarter.<br><br>
+                    From internal management tools to automated workflows and data-driven dashboards —<br>
+                    I develop end-to-end solutions that are functional, secure, and easy to maintain.<br><br>
+                    I’m not here to build flashy interfaces.<br>
+                    I’m here to build systems that work — reliably, efficiently, and for everyone.
+                </p>
+            </div>
+        </section>
+
+        <section id="what" data-aos="fade-left">
+            <div class="container">
+                <h2>What I Do</h2>
+                <p>
+                    <strong>🚀 Functional Web Systems</strong><br>
+                    I design and develop web-based systems that simplify complex business flows.<br><br>
+
+                    <strong>🔗 API Development</strong><br>
+                    I build clean, scalable APIs that connect applications seamlessly—perfect for integrating multiple
+                    services or
+                    mobile apps.<br><br>
+
+                    <strong>💼 Business Automation</strong><br>
+                    From payroll and finance tracking to internal dashboards, I help companies streamline their
+                    operations through
+                    custom Laravel solutions.<br><br>
+
+                    <strong>🧠 Laravel Expertise</strong><br>
+                    With deep experience in Laravel’s ecosystem, I craft robust backends using Eloquent, Sanctum, API
+                    resources,
+                    and efficient architecture.
+                </p>
+            </div>
+        </section>
+
+
+        <section id="why" data-aos="fade-right">
+            <div class="container">
+                <h2>Why Work With Me</h2>
+                <p>
+                    <strong>💻 Laravel-Centric Development</strong><br>
+                    I build everything with Laravel’s best practices — clean, structured, and powerful.<br><br>
+
+                    <strong>⚙️ Functional Over Flashy</strong><br>
+                    I focus on what matters: reliable systems that support your real business operations.<br><br>
+
+                    <strong>🔒 Secure & Scalable</strong><br>
+                    I prioritize data security and scalability — because good systems should grow with your
+                    company.<br><br>
+
+                    <strong>🤝 Collaborative Approach</strong><br>
+                    Every project starts with understanding your business process first, then translating it into a
+                    system that
+                    actually solves problems.
+                </p>
+            </div>
+        </section>
+
+        <section id="projects" class="projects-section">
+            <div class="container">
+                <h2 data-aos="fade-up">Selected Projects</h2>
+                <div class="projects-grid">
+                    <article class="project-card" data-aos="zoom-in">
+                        <h3><a href="https://bglink.id" target="_blank">Bagilink</a></h3>
+                        <p>Shorten links, create microsites, and manage QR codes — all in one platform for business and
+                            creators.</p>
+                    </article>
+
+                    <article class="project-card" data-aos="zoom-in">
+                        <h3><a href="https://jmtm.co.id" target="_blank">Corporate Website</a></h3>
+                        <p>Corporate profile website for Corporate, featuring company info, services, and contact.</p>
+                    </article>
+
+                    <article class="project-card" data-aos="zoom-in">
+                        <h3><a href="https://github.com/adindaayuazzahra/girlkicks" target="_blank">Girl Kicks</a>
+                        </h3>
+                        <p>GirlKicks is a mobile app sfor selling women's futsal shoes, featuring a modern and intuitive
+                            UI built with Flutter.</p>
+                    </article>
+
+                    <article class="project-card" data-aos="zoom-in">
+                        <h3><a href="https://elegal.jmtm.co.id" target="_blank">Electronic Legal Document Website</a>
+                        </h3>
+                        <p>Manage legal documents electronically for Corporate — secure uploads, digital signatures, and
+                            easy tracking in one web system.</p>
+                    </article>
+
+                    <article class="project-card" data-aos="zoom-in">
+                        <h3><a href="https://event.jmtm.co.id/" target="_blank">Event Apps for Internal Corporate</a>
+                        </h3>
+                        <p>
+                            Event management system for internal corporate use — register for lucky draws, send
+                            invitations via WhatsApp with QR codes for event entry verification.
+                        </p>
+                    </article>
+
+                    <article class="project-card" data-aos="zoom-in">
+                        <h3><a href="https://github.com/adindaayuazzahra" target="_blank">...and More</a></h3>
+                        <p>
+                            I keep building — from internal tools to creative side projects.
+                            Always exploring new ways to make systems smarter and simpler.
+                        </p>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" data-aos="fade-up">
+            <div class="container text-center">
+                <h2>Contact</h2>
+                <p>Want to work together or just say hi?<br>
+                    I’m always open for new ideas and collaborations.</p>
+
+                <div class="contact-actions" data-aos="fade-up" data-aos-delay="150">
+                    <div class="email-display"
+                        style="font-size:1.2rem;margin-top:1rem;color:var(--text-primary);font-weight:500;">
+                        📧 adinda@example.com
+                    </div>
+
+                    <a href="mailto:adinda@example.com" class="btn" style="display:inline-flex;align-items:center;gap:10px;padding:12px 24px;
+                background:#2563eb;color:white;border-radius:9999px;
+                font-weight:500;text-decoration:none;transition:0.3s;
+                margin-top:1.5rem;box-shadow:0 4px 12px rgba(37,99,235,0.4);">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8"
+                            stroke="currentColor" style="width:22px;height:22px;">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M16 12H8m8 0l-4-4m4 4l-4 4M4 4h16v16H4V4z" />
+                        </svg>
+                        Send Email
+                    </a>
+                </div>
+
+                <div class="social-links" style="margin-top:20px;">
+                    <a href="https://instagram.com/adindayzhr" target="_blank"
+                        style="color:var(--text-secondary);margin:0 8px;text-decoration:none;">
+                        Instagram
+                    </a>
+                    <span>•</span>
+                    <a href="https://github.com/adindaayuazzahra" target="_blank"
+                        style="color:var(--text-secondary);margin:0 8px;text-decoration:none;">
+                        GitHub
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer
+        style="background:#111; color:#eee; text-align:center; padding:40px 20px; font-family:'Poppins', sans-serif;">
+        <h3 style="margin-bottom:10px;">Adinda Azzahra</h3>
+        <p style="max-width:600px; margin:0 auto 20px; font-size:0.95em; color:#aaa;">
+            Building modern web and mobile systems that make business workflows smarter.
+            Laravel • Flutter • API • Clean Architecture
+        </p>
+        <p style="font-size:0.85em; color:#666;">© <span id="year"></span> Adinda Azzahra. All rights reserved.</p>
+        <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+    </footer>
+
+    <!-- JQUERY -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <!-- AOS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <!-- Typed.js for typing effect -->
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+
+    <!-- Main script -->
+    <!-- <script src="script.js"></script> -->
+
+    <script>
+        $(document).ready(function () {
+            // ==========================
+            //  AOS Init
+            // ==========================
+            AOS.init({
+                duration: 700,
+                offset: 120
+            });
+
+            // ==========================
+            //  Typed.js Typing Effect
+            // ==========================
+            if ($('.typing').length) {
+                new Typed('.typing', {
+                    strings: ['Fullstack Developer', 'Beginner Mobile Developer', 'API Development', 'Laravel Expertise', 'Amature Photographer', 'Problem Solver'],
+                    typeSpeed: 60,
+                    backSpeed: 35,
+                    backDelay: 1600,
+                    loop: true,
+                });
+            }
+
+            // ==========================
+            //  Canvas Particle Trail
+            // ==========================
+            const canvas = document.getElementById('mouseCanvas');
+            const ctx = canvas.getContext('2d');
+            let w = canvas.width = $(window).width();
+            let h = canvas.height = $(window).height();
+            let particles = [];
+
+            $(window).on('resize', function () {
+                w = canvas.width = $(window).width();
+                h = canvas.height = $(window).height();
+            });
+
+            $(window).on('mousemove', function (e) {
+                particles.push({
+                    x: e.clientX,
+                    y: e.clientY,
+                    r: 4 + Math.random() * 3,
+                    a: 1,
+                    vx: (Math.random() - 0.5) * 0.6,
+                    vy: -0.6 - Math.random() * 0.6
+                });
+                if (particles.length > 120) particles.shift();
+            });
+
+            function render() {
+                ctx.clearRect(0, 0, w, h);
+                for (let i = 0; i < particles.length; i++) {
+                    const p = particles[i];
+                    ctx.beginPath();
+                    ctx.fillStyle = `rgba(0,120,255,${p.a.toFixed(2)})`;
+                    ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+                    ctx.fill();
+                    p.x += p.vx;
+                    p.y += p.vy;
+                    p.a -= 0.015;
+                }
+                particles = particles.filter(p => p.a > 0.02);
+                requestAnimationFrame(render);
+            }
+            render();
+
+            // ==========================
+            //  Dark Mode Toggle
+            // ==========================
+            const $toggle = $('#darkToggle');
+
+            function setDark(val) {
+                if (val) $('html').addClass('dark');
+                else $('html').removeClass('dark');
+                localStorage.setItem('prefDark', val ? '1' : '0');
+            }
+
+            $toggle.on('click', function () {
+                const isDark = $('html').hasClass('dark');
+                setDark(!isDark);
+            });
+
+            if (localStorage.getItem('prefDark') === '1') setDark(true);
+
+            // ==========================
+            //  Contact Form Demo
+            // ==========================
+            $('#contactForm').on('submit', function (e) {
+                e.preventDefault();
+                const name = $(this).find('[name="name"]').val() || 'friend';
+                alert('Thank you, ' + name + '! This demo does not actually send messages. Replace with Formspree or EmailJS.');
+                this.reset();
+            });
+
+        });
+
+
+
+
+    </script>
+
+</body>
+
+</html>
