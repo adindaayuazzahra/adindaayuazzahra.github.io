@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Portfolio Template (Interactive)
 
 This is a lightweight static portfolio template (HTML/CSS/JS) with:
@@ -22,6 +21,3 @@ To make the contact form send emails, use Formspree or EmailJS:
 
 ## License
 MIT — feel free to modify.
-=======
-# adindaayuazzahra.github.io
->>>>>>> c39c35caa8b76a06b46e82cfd3683a357d95a41b
